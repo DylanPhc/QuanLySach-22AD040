@@ -1,0 +1,20 @@
+<h1>Quản lý Sách</h1>
+
+{{#if error}}<p style="color:red">{{error}}</p>{{/if}}
+
+<form method="POST" action="/add">
+  <input name="maSP" placeholder="Mã SP (bắt đầu bằng {{PREFIX}})" required />
+  <input name="ten" placeholder="Tên sách" required />
+  <input name="gia" type="number" placeholder="Giá gốc" required />
+  <button type="submit">Thêm</button>
+</form>
+
+<table border="1" cellpadding="6">
+  <tr><th>Mã SP</th><th>Tên</th><th>Giá gốc</th><th>VAT</th><th>Giá sau thuế</th></tr>
+  {{#each books}}
+    <tr>
+      <td>{{maSP}}</td><td>{{ten}}</td><td>{{giaGoc}}</td>
+      <td>{{vat}}%</td><td>{{giaSauThue}}</td>
+    </tr>
+  {{/each}}
+</table>
